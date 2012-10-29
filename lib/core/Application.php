@@ -20,7 +20,7 @@ class Application {
 	/**
 	 * Run
 	 */
-	public function run() {
+	public function run() {
 		global $defaults;
 		
 		$this->query->parse( $this->rewrite->parse() );
