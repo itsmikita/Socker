@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This class works as a router. It uses URL to convert it
- * to query string that Query class uses to handle request.
+ * Basically this is the Router, da URL wrapper. Now unknown syntax - use plain
+ * Regular expressions when adding new rules. You can also tweak the priority.
  */
 
 namespace Sugar;

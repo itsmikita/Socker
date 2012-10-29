@@ -11,7 +11,7 @@ class Home extends \Sugar\Controller {
 	 * Constructor
 	 */
 	public function __construct() {
-		//...
+		parent::__construct();
 	}
 	
 	/**
