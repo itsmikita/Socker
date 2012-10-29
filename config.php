@@ -28,20 +28,6 @@ define( 'DOMAIN', $_SERVER['HTTP_HOST'] );
 define( 'PATH', '/sugar' );
 
 /**
- * Database settings
- */
-define( 'DBHOST', 'localhost' );
-define( 'DBUSER', 'root' );
-define( 'DBPASS', 'root' );
-define( 'DBNAME', 'sugar' );
-define( 'PREFIX', '' );
-
-/**
- * Password salt
- */
-define( 'AUTH_SALT', 'dY=EO6fj+qPuUA1@7{ep^0]X>|b:u|HN,BIB[P$!zE*nmU#5S[TZ=gfiURbw;*m!' );
-
-/**
  * Defaults
  */
 $defaults = array();
