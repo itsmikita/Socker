@@ -9,5 +9,8 @@
  */
 require_once( 'app.php' );
 
-$app = new \User\Application();
+/**
+ * Define your app's Application
+ */
+$app = new \App\Application();
 $app->run();

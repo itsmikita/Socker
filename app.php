@@ -18,6 +18,11 @@ require_once( 'lib/core/Model.php' );
 require_once( 'lib/core/View.php' );
 
 /**
+ * Call this anything
+ */
+namespace App;
+
+/**
  * User Application class
  */
 class Application extends \Sugar\Application {
