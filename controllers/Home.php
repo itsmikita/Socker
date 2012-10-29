@@ -12,6 +12,9 @@ class Home extends \Sugar\Controller {
 	 */
 	public function __construct() {
 		parent::__construct();
+		
+		// define view class here, to be able to set dependencies
+		$this->view = new \Sugar\View();
 	}
 	
 	/**
@@ -23,8 +26,7 @@ class Home extends \Sugar\Controller {
 			'var2' => 'test2'
 		);
 		
-		$view = new \Sugar\View( 'home/index' );
-		$view->render( $args );
+		$this->view->render( 'home/index', $args );
 	}
 	
 	/**
@@ -33,7 +35,6 @@ class Home extends \Sugar\Controller {
 	 * @param string slug - Page slug
 	 */
 	public function page( $slug = '' ) {
-		$view = new \Sugar\View( 'home/page' );
-		$view->render( compact( 'slug' ) );
+		$this->view->render( 'home/page', compact( 'slug' ) );
 	}
 }
