@@ -3,6 +3,11 @@
 namespace Sugar;
 
 /**
+ * Version
+ */
+define( 'SUGAR_VERSION', '0.1' );
+
+/**
  * Default Application class
  */
 class Application {
@@ -23,11 +28,14 @@ class Application {
 	public function run() {
 		global $defaults;
 		
-		$this->query->parse( $this->rewrite->parse() );
+		$this->query = new Query( $this->rewrite->parse() );
 		
 		$controller = $this->loadController( $this->query->getVar( 'controller', $defaults['controller'] ) );
-		$method = $this->query->getVar( 'method' )
+		$method = $this->query->getVar( 'method', $defaults['method'] );
 		$args = $this->query->getVar( 'args', array() );
+		
+		if( ! method_exists( $controller, $method ) )
+			die( sprintf( 'Method %s doesn\'t exists in %s', $method, get_class( $controller ) ) );
 		
 		call_user_func_array( array( $controller, $method ), $args );
 	}
@@ -37,7 +45,6 @@ class Application {
 	 */
 	private function boot() {
 		$this->rewrite = new Rewrite();
-		$this->query = new Query();
 	}
 	
 	/**
@@ -49,4 +56,23 @@ class Application {
 		else
 			error_reporting( 0 );
 	}
+	
+	/**
+	 * Load controller
+	 */
+	private function loadController( $controller ) {
+		if( !file_exists( ABSPATH . "/controllers/{$controller}.php" ) )
+			return false;
+		
+		require_once( ABSPATH . "/controllers/{$controller}.php" );
+		
+		// as $controller could be 'admin/Dashboard'
+		$controller = explode( '/', $controller );
+		$controller = '\\Controller\\' . end( $controller );
+		
+		if( !class_exists( $controller ) )
+			return false;
+		
+		return new $controller();
+	} 
 }

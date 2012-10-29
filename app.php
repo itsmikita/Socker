@@ -1,6 +1,9 @@
 <?php
 
-define( 'SUGAR_VERSION', '0.1' );
+/**
+ * Call this anything
+ */
+namespace App;
 
 /**
  * Load configuration
@@ -18,13 +21,24 @@ require_once( 'lib/core/Model.php' );
 require_once( 'lib/core/View.php' );
 
 /**
- * Call this anything
- */
-namespace App;
-
-/**
- * User Application class
+ * Application class
  */
 class Application extends \Sugar\Application {
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		parent::__construct();
+		
+		// add rewrite rules
+		$this->addRules();
+	}
 	
+	/**
+	 * Add rewrite rules
+	 */
+	public function addRules() {
+		$this->rewrite->addRule( '\/([^\/]+)\/?', 'controller=$1&method=index' );
+		$this->rewrite->addRule( '\/([^\/]+)\/([^\/]+)\/?', 'controller=$1&method=$2' );
+	}
 }

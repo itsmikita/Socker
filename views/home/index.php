@@ -4,4 +4,4 @@
  *
  */
 
-echo 'This is Home view';
+echo 'This is Home index view';

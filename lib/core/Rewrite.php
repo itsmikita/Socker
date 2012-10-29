@@ -16,7 +16,7 @@ class Rewrite {
 	/**
 	 * Constructor
 	 */
-	public __construct() {}
+	public function __construct() {}
 	
 	/**
 	 * Add rule
@@ -53,8 +53,8 @@ class Rewrite {
 		
 		foreach( $this->rules as $rule )
 			foreach( $rule as $route => $vars )
-				if( preg_match( '/^\/' . $route . '(\/)?$/', $request, $matches ) )
-					return preg_replace( '/^\/' . $route . '(\/)?$/', $vars, $matches[0] );
+				if( preg_match( '/^' . $route . '$/', $request_path, $matches ) )
+					return preg_replace( '/^' . $route . '$/', $vars, $matches[0] );
 		
 		return '';
 	}
@@ -62,7 +62,7 @@ class Rewrite {
 	/**
 	 * Get request path
 	 */
-	private getRequestPath() {
+	private function getRequestPath() {
 		$uri = explode( '?', $_SERVER['REQUEST_URI'] );
 		$path = '/' != PATH ? str_replace( PATH, '', $uri[0] ) : $uri[0];
 		

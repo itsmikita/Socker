@@ -25,7 +25,7 @@ define( 'DOMAIN', $_SERVER['HTTP_HOST'] );
 /**
  * Path
  */
-define( 'PATH', '/' );
+define( 'PATH', '/sugar' );
 
 /**
  * Database settings

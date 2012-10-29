@@ -1,11 +1,12 @@
 <?php
 
-namespace App;
+namespace Controller;
+
 /**
  *
  */
 
-class Home extends /Sugar/Controller {
+class Home extends \Sugar\Controller {
 	/**
 	 * Constructor
 	 */
@@ -22,7 +23,7 @@ class Home extends /Sugar/Controller {
 			'var2' => 'test2'
 		);
 		
-		$view = new View( 'home/page' );
+		$view = new \Sugar\View( 'home/index' );
 		$view->render( $args );
 	}
 	
@@ -32,7 +33,7 @@ class Home extends /Sugar/Controller {
 	 * @param string slug - Page slug
 	 */
 	public function page( $slug = '' ) {
-		$view = new View( 'home/page' );
+		$view = new \Sugar\View( 'home/page' );
 		$view->render( compact( 'slug' ) );
 	}
 }

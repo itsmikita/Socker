@@ -12,7 +12,7 @@ class View {
 	 * Constructor
 	 */
 	public function __construct( $filename ) {
-		$this->filename = $template;
+		$this->filename = $filename;
 		$this->args = array();
 	}
 	
@@ -26,7 +26,7 @@ class View {
 		
 		extract( $this->args );
 		
-		include( ABSPATH . VIEWSPATH . "{$this->filename}.php" );
+		include( ABSPATH . '/views/' .  "{$this->filename}.php" );
 	}
 	
 	/**
