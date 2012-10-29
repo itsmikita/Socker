@@ -7,7 +7,7 @@
 /**
  * Load application
  */
-require_once( 'app.php' );
+require_once( 'app/app.php' );
 
 /**
  * Define your app's Application

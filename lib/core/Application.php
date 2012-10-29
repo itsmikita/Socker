@@ -63,12 +63,12 @@ class Application {
 	 * @param string $controller - Controller path, eg: folder/some-controller
 	 */
 	private function loadController( $controller ) {
-		if( !file_exists( ABSPATH . "/controllers/{$controller}.php" ) )
+		if( !file_exists( ABSPATH . "/app/controllers/{$controller}.php" ) )
 			return false;
 		
 		$controller = strtolower( $controller );
 		
-		require_once( ABSPATH . "/controllers/{$controller}.php" );
+		require_once( ABSPATH . "/app/controllers/{$controller}.php" );
 		
 		// eg. 'folder/some-controller' -> '\Controller\Some_Controller';
 		$controller = '\\Controller\\' . str_replace( ' ', '_', ucwords( implode( ' ', explode( '-', end( explode( '/', $controller ) ) ) ) ) );

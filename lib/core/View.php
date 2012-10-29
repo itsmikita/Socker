@@ -43,7 +43,7 @@ class View {
 		
 		extract( $this->args );
 		
-		include( ABSPATH . "/views/{$filename}.php" );
+		include( ABSPATH . "/app/views/{$filename}.php" );
 	}
 	
 	/**
@@ -52,7 +52,7 @@ class View {
 	public function getAsset( $filename ) {
 		extract( $this->args );
 		
-		include( ABSPATH . "/views/{$filename}.php" );
+		include( ABSPATH . "/app/views/{$filename}.php" );
 	}
 	
 	/**

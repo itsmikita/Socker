@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Call this anything
+ * Call it anything
  */
 namespace App;
 
@@ -13,12 +13,12 @@ require_once( 'config.php' );
 /**
  * Load core classes
  */
-require_once( 'lib/core/Application.php' );
-require_once( 'lib/core/Rewrite.php' );
-require_once( 'lib/core/Query.php' );
-require_once( 'lib/core/Controller.php' );
-require_once( 'lib/core/Model.php' );
-require_once( 'lib/core/View.php' );
+require_once( ABSPATH . '/lib/core/Application.php' );
+require_once( ABSPATH . '/lib/core/Rewrite.php' );
+require_once( ABSPATH . '/lib/core/Query.php' );
+require_once( ABSPATH . '/lib/core/Controller.php' );
+require_once( ABSPATH . '/lib/core/Model.php' );
+require_once( ABSPATH . '/lib/core/View.php' );
 
 /**
  * Application class
