@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Really simple Query class.
+ */
+
 namespace Sugar;
 
 /**

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Really simple View class.
+ */
+
 namespace Sugar;
 
 /**

@@ -59,16 +59,21 @@ class Application {
 	
 	/**
 	 * Load controller
+	 *
+	 * @param string $controller - Controller path, eg: folder/some-controller
 	 */
 	private function loadController( $controller ) {
 		if( !file_exists( ABSPATH . "/controllers/{$controller}.php" ) )
 			return false;
 		
+		$controller = strtolower( $controller );
+		
 		require_once( ABSPATH . "/controllers/{$controller}.php" );
 		
-		// as $controller could be 'admin/Dashboard'
+		// eg. 'folder/some-controller' -> '\Controller\Some_Controller';
 		$controller = explode( '/', $controller );
-		$controller = '\\Controller\\' . end( $controller );
+		$controller = end( $controller );
+		$comtroller = '\\Controller\\' . str_replace( ' ', '_', ucwords( implode( ' ', explode( '-', $controller ) ) ) );
 		
 		if( !class_exists( $controller ) )
 			return false;
