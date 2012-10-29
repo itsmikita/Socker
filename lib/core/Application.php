@@ -71,9 +71,7 @@ class Application {
 		require_once( ABSPATH . "/controllers/{$controller}.php" );
 		
 		// eg. 'folder/some-controller' -> '\Controller\Some_Controller';
-		$controller = explode( '/', $controller );
-		$controller = end( $controller );
-		$comtroller = '\\Controller\\' . str_replace( ' ', '_', ucwords( implode( ' ', explode( '-', $controller ) ) ) );
+		$controller = '\\Controller\\' . str_replace( ' ', '_', ucwords( implode( ' ', explode( '-', end( explode( '/', $controller ) ) ) ) ) );
 		
 		if( !class_exists( $controller ) )
 			return false;
