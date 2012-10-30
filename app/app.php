@@ -23,7 +23,7 @@ require_once( ABSPATH . '/lib/core/View.php' );
 /**
  * Application class
  */
-class Application extends \Socker\Application {
+final class Application extends \Socker\Application {
 	/**
 	 * Constructor
 	 */
@@ -37,7 +37,7 @@ class Application extends \Socker\Application {
 	/**
 	 * Add rewrite rules
 	 */
-	public function addRules() {
+	private function addRules() {
 		$this->rewrite->addRule( '\/([^\/]+)\/?', 'controller=$1&method=index' );
 		$this->rewrite->addRule( '\/([^\/]+)\/([^\/]+)\/?', 'controller=$1&method=$2' );
 	}
