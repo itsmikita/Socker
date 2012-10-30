@@ -23,7 +23,7 @@ require_once( ABSPATH . '/lib/core/View.php' );
 /**
  * Application class
  */
-class Application extends \Sugar\Application {
+class Application extends \Socker\Application {
 	/**
 	 * Constructor
 	 */

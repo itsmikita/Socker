@@ -1,11 +1,16 @@
 <?php
 
-namespace Sugar;
+/**
+ * This is base class for your application. Don't tempt to modify it
+ * here, better extend and overwrite it in your app.php.
+ */
+
+namespace Socker;
 
 /**
  * Version
  */
-define( 'SUGAR_VERSION', '0.1' );
+define( 'SOCKER_VERSION', '0.1' );
 
 /**
  * Default Application class
@@ -23,6 +28,23 @@ class Application {
 	}
 	
 	/**
+	 * Development mode
+	 */
+	private function devMode() {
+		if( defined( 'DEBUG' ) && 1 == DEBUG )
+			error_reporting( E_ALL & ~ E_NOTICE );
+		else
+			error_reporting( 0 );
+	}
+	
+	/**
+	 * Boot
+	 */
+	private function boot() {
+		$this->rewrite = new Rewrite();
+	}
+	
+	/**
 	 * Run
 	 */
 	public function run() {
@@ -35,26 +57,9 @@ class Application {
 		$args = $this->query->getVar( 'args', array() );
 		
 		if( ! method_exists( $controller, $method ) )
-			die( sprintf( 'Method %s doesn\'t exists in %s', $method, get_class( $controller ) ) );
+			die( sprintf( 'Method %s doesn\'t exists in %s', $method, ( string ) @get_class( $controller ) ) );
 		
 		call_user_func_array( array( $controller, $method ), $args );
-	}
-	
-	/**
-	 * Boot
-	 */
-	private function boot() {
-		$this->rewrite = new Rewrite();
-	}
-	
-	/**
-	 * Development mode
-	 */
-	private function devMode() {
-		if( defined( 'DEBUG' ) && 1 == DEBUG )
-			error_reporting( E_ALL & ~ E_NOTICE );
-		else
-			error_reporting( 0 );
 	}
 	
 	/**
@@ -63,10 +68,10 @@ class Application {
 	 * @param string $controller - Controller path, eg: folder/some-controller
 	 */
 	private function loadController( $controller ) {
+		$controller = strtolower( $controller );
+		
 		if( !file_exists( ABSPATH . "/app/controllers/{$controller}.php" ) )
 			return false;
-		
-		$controller = strtolower( $controller );
 		
 		require_once( ABSPATH . "/app/controllers/{$controller}.php" );
 		
@@ -77,5 +82,59 @@ class Application {
 			return false;
 		
 		return new $controller();
-	} 
+	}
+	
+	/**
+	 * Load model
+	 *
+	 * @param string $model - Model path, eg: folder/some-model
+	 * @param array $args - Params to pass to Model's constructor (optional)
+	 */
+	public function loadModel( $model, $args = array() ) {
+		$model = strtolower( $model );
+		
+		if( !file_exists( ABSPATH . "/app/models/{$model}.php" ) )
+			return false;
+		
+		require_once( ABSPATH . "/app/models/{$model}.php" );
+		
+		// eg. 'folder/some-model' -> '\Model\Some_Model';
+		$model = '\\Model\\' . str_replace( ' ', '_', ucwords( implode( ' ', explode( '-', end( explode( '/', $model ) ) ) ) ) );
+		
+		if( !class_exists( $model ) )
+			return false;
+		
+		$model = new $model;
+		
+		if( method_exists( $model, '__construct' ) )
+			call_user_func_array( array( $model, '__construct' ), $args );
+		
+		return new $model;
+	}
+	
+	/**
+	 * Load library
+	 *
+	 * As 3rd party libraries could have multiple classes and/or files.
+	 *
+	 * @param string $path - Library path
+	 * @param string $class - Class name
+	 * @param array $args - Params to pass to Library's constructor (optional)
+	 */
+	public function loadLibrary( $path, $class, $args = array() ) {
+		if( !file_exists( ABSPATH . "/lib/{$path}.php" ) )
+			return false;
+		
+		require_once( ABSPATH . "/lib/{$path}.php" );
+		
+		if( !class_exists( $class ) )
+			return false;
+		
+		$library = new $class;
+		
+		if( method_exists( $library, '__construct' ) )
+			call_user_func_array( array( $library, '__construct' ), $args );
+		
+		return new $library;
+	}
 }

@@ -1,20 +1,24 @@
 <?php
 
+/**
+ * This is sample controller class.
+ */
+
 namespace Controller;
 
 /**
  *
  */
 
-class Home extends \Sugar\Controller {
+class Home extends \Socker\Controller {
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
 		parent::__construct();
 		
-		// define view class here, to be able to set dependencies
-		$this->view = new \Sugar\View();
+		// define view class here, to be able to set dependencies (TODO)
+		$this->view = new \Socker\View();
 	}
 	
 	/**
@@ -35,6 +39,12 @@ class Home extends \Sugar\Controller {
 	 * @param string slug - Page slug
 	 */
 	public function page( $slug = '' ) {
-		$this->view->render( 'home/page', compact( 'slug' ) );
+		global $app;
+		
+		// laod model
+		$sample = $app->loadModel( 'sample' );
+		$something = $sample->doSomething();
+		
+		$this->view->render( 'home/page', compact( 'slug', 'something' ) );
 	}
 }

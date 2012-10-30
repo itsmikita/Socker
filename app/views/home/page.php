@@ -6,6 +6,12 @@
 
 $this->getHeader();
 
-echo 'This is Home page view';
+?>
+
+<h1>Yey! You did it!</h1>
+
+<p>You're now viewing <em>page()</em> method of Home controller. <a href="/socker/home/index/">Return to <em>index()</em> method of Home controller</a></p>
+
+<?php
 
 $this->getFooter();

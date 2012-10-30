@@ -1,6 +1,6 @@
 <?php
 
-namespace Sugar;
+namespace Socker;
 
 /**
  * Default Controller class

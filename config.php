@@ -25,7 +25,7 @@ define( 'DOMAIN', $_SERVER['HTTP_HOST'] );
 /**
  * Path
  */
-define( 'PATH', '/sugar' );
+define( 'PATH', '/socker' );
 
 /**
  * Defaults

@@ -5,7 +5,7 @@
  * Regular expressions when adding new rules. You can also tweak the priority.
  */
 
-namespace Sugar;
+namespace Socker;
 
 /**
  * Default Rewrite class

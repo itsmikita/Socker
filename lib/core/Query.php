@@ -4,7 +4,7 @@
  * Really simple Query class.
  */
 
-namespace Sugar;
+namespace Socker;
 
 /**
  * Default Query class

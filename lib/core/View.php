@@ -4,7 +4,7 @@
  * Really simple View class.
  */
 
-namespace Sugar;
+namespace Socker;
 
 /**
  * Default View class
