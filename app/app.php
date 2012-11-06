@@ -21,7 +21,12 @@ require_once( ABSPATH . '/lib/core/Model.php' );
 require_once( ABSPATH . '/lib/core/View.php' );
 
 /**
- * Application class
+ * You could extend all basic classes here below to fit your application.
+ * Load libraries, eat bananas, do whatever you want here.
+ */
+
+/**
+ * Your final application class
  */
 final class Application extends \Socker\Application {
 	/**
@@ -30,12 +35,14 @@ final class Application extends \Socker\Application {
 	public function __construct() {
 		parent::__construct();
 		
-		// add rewrite rules
 		$this->addRules();
 	}
 	
 	/**
 	 * Add rewrite rules
+	 *
+	 * Rewrite rules are used to define nice URL and route them to right 
+	 * controllers and its methods.
 	 */
 	private function addRules() {
 		$this->rewrite->addRule( '\/([^\/]+)\/?', 'controller=$1&method=index' );
