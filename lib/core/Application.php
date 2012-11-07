@@ -127,8 +127,14 @@ class Application {
 	 * @param string $path - Library path
 	 * @param string $class - Class name
 	 * @param array $args - Params to pass to Library's constructor (optional)
+	 * @param array $deps - Dependencies (paths to files without extension) this class is dependent of.
 	 */
-	public function loadLibrary( $path, $class, $args = array() ) {
+	public function loadLibrary( $path, $class, $args = array(), $deps = array() ) {
+		// load dependencies, basic so far...
+		if( $deps )
+			foreach( $deps as $dep )
+				@require_once( ABSPATH . "/lib/{$dep}.php" );
+		
 		if( !file_exists( ABSPATH . "/lib/{$path}.php" ) )
 			return false;
 		
