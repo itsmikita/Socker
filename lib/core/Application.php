@@ -52,6 +52,13 @@ class Application {
 		
 		$this->query = new Query( $this->rewrite->parse() );
 		
+		$redirect_to = $this->query->getVar( 'redirect_to' );
+		
+		if( $redirect_to ) {
+			$this->redirect( $redirect_to );
+			exit();
+		}
+		
 		$controller = $this->loadController( $this->query->getVar( 'controller', $defaults['controller'] ) );
 		$method = $this->query->getVar( 'method', $defaults['method'] );
 		$args = $this->query->getVar( 'args', array() );
@@ -136,5 +143,23 @@ class Application {
 			call_user_func_array( array( $library, '__construct' ), $args );
 		
 		return new $library;
+	}
+	
+	/**
+	 * Redirect
+	 *
+	 * HTTP redirect
+	 *
+	 * @param string $location - Location
+	 * @param int $status - HTTP/1.1 status code
+	 * @return bool - False if $location is not set
+	 */
+	public function redirect( $location, $status = 302 ) {
+		$location = preg_replace( '|[^a-z0-9-~+_.?#=&;,/:%!]|i', '', $location );
+		
+		if( ! $location )
+			return false;
+		
+		header( "Location: $location", true, $status );
 	}
 }
