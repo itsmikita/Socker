@@ -1,7 +1,11 @@
 <?php
 
 /**
+ * Configuration file
  *
+ * @package Socker
+ * @version 0.3
+ * @author Mikita Stankevich <designovermatter@gmail.com>
  */
 
 /**

@@ -2,6 +2,10 @@
 
 /**
  * Really simple Query class.
+ *
+ * @package Socker
+ * @version 0.3
+ * @author Mikita Stankevich <designovermatter@gmail.com>
  */
 
 namespace Socker;

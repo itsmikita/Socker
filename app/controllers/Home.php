@@ -1,7 +1,11 @@
 <?php
 
 /**
- * This is sample controller class.
+ * Sample controller class.
+ *
+ * @package Socker
+ * @version 0.3
+ * @author Mikita Stankevich <designovermatter@gmail.com>
  */
 
 namespace Controller;

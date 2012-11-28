@@ -1,7 +1,11 @@
 <?php
 
 /**
- * This is sample model class
+ * Sample model class
+ *
+ * @package Socker
+ * @version 0.3
+ * @author Mikita Stankevich <designovermatter@gmail.com>
  */
 
 namespace Model;

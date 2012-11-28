@@ -1,16 +1,17 @@
 <?php
 
 /**
+ * Index
  *
+ * @package Socker
+ * @version 0.3
+ * @author Mikita Stankevich <designovermatter@gmail.com>
  */
 
-/**
- * Load application
- */
+
+// Load application
 require_once( 'app/app.php' );
 
-/**
- * Define your app's Application
- */
+// Your app
 $app = new \App\Application();
 $app->run();

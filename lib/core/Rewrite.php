@@ -3,6 +3,10 @@
 /**
  * Basically this is the Router, da URL wrapper. Now unknown syntax - use plain
  * Regular expressions when adding new rules. You can also tweak the priority.
+ *
+ * @package Socker
+ * @version 0.3
+ * @author Mikita Stankevich <designovermatter@gmail.com>
  */
 
 namespace Socker;

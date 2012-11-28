@@ -3,6 +3,10 @@
 /**
  * This is base class for your application. Don't tempt to modify it
  * here, better extend and overwrite it in your app.php.
+ *
+ * @package Socker
+ * @version 0.3
+ * @author Mikita Stankevich <designovermatter@gmail.com>
  */
 
 namespace Socker;

@@ -1,6 +1,14 @@
 <?php
 
 /**
+ * Sample app file
+ *
+ * @package Socker
+ * @version 0.3
+ * @author Mikita Stankevich <designovermatter@gmail.com>
+ */
+
+/**
  * Call it anything
  */
 namespace App;

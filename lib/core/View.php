@@ -2,6 +2,10 @@
 
 /**
  * Really simple View class.
+ *
+ * @package 
+ * @version 
+ * @author Mikita Stankevich <>
  */
 
 namespace Socker;

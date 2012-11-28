@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * Default controller class
+ *
+ * @package Socker
+ * @version 0.3
+ * @author Mikita Stankevich <designovermatter@gmail.com>
+ */
+
 namespace Socker;
 
-/**
- * Default Controller class
- */
 class Controller {
 	private $current_screen;
 	

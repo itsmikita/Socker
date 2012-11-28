@@ -1,7 +1,11 @@
 <?php
 
 /**
+ * Page view
  *
+ * @package Socker
+ * @version 0.3
+ * @author Mikita Stankevich <designovermatter@gmail.com>
  */
 
 $this->getHeader();
