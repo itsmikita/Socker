@@ -16,7 +16,10 @@ class Controller {
 	/**
 	 * Constructor
 	 */
-	public function __construct() {}
+	public function __construct() {
+		// define view class here, to be able to set dependencies (TODO)
+		$this->view = new \Socker\View();
+	}
 	
 	/**
 	 * Index

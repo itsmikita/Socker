@@ -3,9 +3,8 @@
 /**
  * Really simple View class.
  *
- * @package 
- * @version 
- * @author Mikita Stankevich <>
+ * @package Socker
+ * @author Mikita Stankevich <designovermatter@gmail.com>
  */
 
 namespace Socker;
@@ -20,12 +19,8 @@ class View {
 	
 	/**
 	 * Constructor
-	 *
-	 * @param array $deps - Dependencies (scripts/styles)
 	 */
-	public function __construct( $deps = array() ) {
-		$this->dependencies = $deps; // TODO:
-	}
+	public function __construct() {}
 	
 	/**
 	 * Assign variable
@@ -33,7 +28,7 @@ class View {
 	 * @param string $key - Variable key
 	 * @param mixed $value - Variable value
 	 */
-	public function setKey( $key, $value ) {
+	public function setVar( $key, $value ) {
 		$this->args[ $key ] = $value;
 	}
 	
@@ -43,10 +38,20 @@ class View {
 	 * @param string $key - Variable key
 	 * @param mixed $value - Variable value
 	 */
-	public function removeKey( $key ) {
+	public function removeVar( $key ) {
 		if( isset( $this->args[ $key ] ) )
 			unset( $this->args[ $key ] );
 	}
+	
+	/**
+	 * Enqueue style
+	 */
+	public function enqueueStyle( $name, $src, $deps = array() ) {}
+	
+	/**
+	 * Enqueue script
+	 */
+	public function enqueueScript( $name, $src, $deps = array() ) {}
 	
 	/**
 	 * Render view
@@ -107,5 +112,7 @@ class View {
 	 */
 	public function setHttpHeader( $code = 200 ) {
 		// TODO:
+		
+		
 	}
 }

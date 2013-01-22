@@ -3,9 +3,8 @@
 /**
  * Admin login controller
  *
- * @package Mochilla
- * @version 0.1
- * @author Mikita Stankevich <designovermatter@gmail.com>
+ * @package Socker
+ * @author Mikita Stankiewicz <designovermatter@gmail.com>
  */
 
 namespace Controller;

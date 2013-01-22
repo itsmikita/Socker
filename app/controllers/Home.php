@@ -4,8 +4,7 @@
  * Sample controller class.
  *
  * @package Socker
- * @version 0.3
- * @author Mikita Stankevich <designovermatter@gmail.com>
+ * @author Mikita Stankiewicz <designovermatter@gmail.com>
  */
 
 namespace Controller;
@@ -21,8 +20,7 @@ class Home extends \Socker\Controller {
 	public function __construct() {
 		parent::__construct();
 		
-		// define view class here, to be able to set dependencies (TODO)
-		$this->view = new \Socker\View();
+		$this->view->enqueueScript( 'jquery', 'http://code.jquery.com/jquery-1.9.0.js' );
 	}
 	
 	/**
