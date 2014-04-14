@@ -1,47 +1,18 @@
 <?php
 
-/**
- * Configuration file
- *
- * @package Socker
- * @version 0.3
- * @author Mikita Stankevich <designovermatter@gmail.com>
- */
+/* A sample configuration file */
 
-/**
- * Debuging
- *
- * 1 - On, will print all errors to browser
- * 0 - Off
- */
-define( 'DEBUG', 1 );
+// Absolute path
+define( 'ABSPATH', dirname( __FILE__ ) );
 
-/**
- * Absolute path
- */
-define( 'ABSPATH', realpath( dirname( __FILE__ ) ) );
+// Library path
+define( 'LIB', ABSPATH . '/lib' );
 
-/**
- * Domain
- */
-define( 'DOMAIN', $_SERVER['HTTP_HOST'] );
+// Application path
+define( 'APP', ABSPATH . '/app' );
 
-/**
- * Path
- */
-define( 'PATH', '/socker' );
+// Views
+define( 'VIEWS', ABSPATH . '/views' );
 
-/**
- * Defaults
- */
-$defaults = array();
-
-/**
- * Default controller name
- */
-$defaults['controller'] = 'Home';
-
-/**
- * Default method name
- */
-$defaults['method'] = 'index';
+// Web
+define( 'HOMEURL', 'http://localhost' );

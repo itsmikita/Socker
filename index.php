@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Index
+ * Socker
  *
- * @package Socker
- * @version 0.3
- * @author Mikita Stankevich <designovermatter@gmail.com>
+ * Write your application by extending \Socker\Application 
+ * and include it down below.
  */
 
+// Configuration
+require_once( 'config.php' );
 
-// Load application
-require_once( 'app/app.php' );
+// Load application files
+require_once( LIB . '/socker/application.php' );
 
-// Your app
-$app = new \App\Application();
-$app->run();
+// Run application
+$app = new \Socker\Application();

@@ -1,9 +1,5 @@
-Sugar
-=====
+Socker
+======
 
-Really simple PHP MVC framework setup.
+A hook-based PHP framework simplified to sugar. More details soon.
 
-How-To
-------
-
-Basically you have to extend `\Socker\Application` class located in `lib/core/Application.php` and write your application in `app/app.php`. See the `app/` for details.

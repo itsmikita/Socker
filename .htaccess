@@ -1,11 +1,12 @@
+
+# BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /socker/
-
-# Checks to see if the user is attempting to access a valid file,
-# such as an image or css document, if this isn't true it sends the
-# request to index.php
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /socker/index.php [L]
+RewriteRule . /index.php [L]
 </IfModule>
+
+# END WordPress
