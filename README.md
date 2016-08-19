@@ -1,5 +1,8 @@
-Socker
-======
+#Toolbox.php
+A tiny PHP Framework. PSR-* compliant, event based architecture.
 
-A hook-based PHP framework simplified to sugar. More details soon.
-
+Changelog
+---------
+**1.0.0**
+- Socker became Toolbox.php
+- `!old` folder is left for reference
